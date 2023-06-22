@@ -6,6 +6,7 @@ public class PlayerState : MonoBehaviour
 {
     [Header("Main")]
     public int points = 0;
+    public bool isPlayerCutting = false;
 
     public void GetPoints(int newPoints)
     {

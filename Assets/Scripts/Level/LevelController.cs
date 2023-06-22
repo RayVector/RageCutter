@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Randomizer;
 
 public class LevelController : MonoBehaviour
 {
     [Header("Main")]
     public string levelId = "begin";
     public bool isMoving = true;
-    public float speed = 0.4f;
+    public float speed = 0.15f;
+    public bool isUnderAcceleration = false;
     [Header("Spawn")]
     public GameObject startLevel;
     public GameObject endLevel;
@@ -37,6 +37,8 @@ public class LevelController : MonoBehaviour
 
     public void MoveSelf()
     {
-        transform.Translate((speed) * Time.deltaTime * Vector2.left);
+        float acceleration = 0f;
+        if (isUnderAcceleration) acceleration = WorldAcceleration.GetAcceleration();
+        transform.Translate((speed + (acceleration)) * Time.deltaTime * Vector2.left);
     }
 }
