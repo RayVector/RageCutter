@@ -7,7 +7,8 @@ public class GenerateLevel : MonoBehaviour
     [Header("Main")]
     public float spawnLevelDelay = 0.0f;
     public float spawnLevelStep = 50f;
-    public GameObject LevelObject;
+    public PlayerState playerState;
+    public GameObject[] Levels;
 
     private void Start()
     {
@@ -21,7 +22,21 @@ public class GenerateLevel : MonoBehaviour
 
     public void SpawnLevel()
     {
+        if (playerState.points < 50)
+        {
+            CreateLevel(Levels[0]);
+        } else if (playerState.points > 50 && playerState.points < 100)
+        {
+            CreateLevel(Levels[1]);
+        } else if (playerState.points > 150 && playerState.points < 200)
+        {
+            CreateLevel(Levels[2]);
+        }
+    }
+
+    private void CreateLevel(GameObject level)
+    {
         Vector3 position = new Vector3(transform.position.x, 0, 0);
-        Instantiate(LevelObject, position, Quaternion.identity);
+        Instantiate(level, position, Quaternion.identity);
     }
 }
