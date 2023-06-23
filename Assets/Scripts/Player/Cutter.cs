@@ -11,6 +11,7 @@ public class Cutter : MonoBehaviour
     public GameObject pointsText;
     public PlayerState playerState;
     public Animator animator;
+    public AudioSource audioSource;
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("CutItem"))
@@ -28,6 +29,7 @@ public class Cutter : MonoBehaviour
         {
             playerState.isPlayerCutting = true;
             animator.Play("Cut");
+            audioSource.Play();
             StartCoroutine(StartCutting(reloadTime));
             StartCoroutine(StartFalling(destroyTime, collision));
             CutItemState cutItemState = collision.gameObject.GetComponent<CutItemState>();

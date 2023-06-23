@@ -57,8 +57,14 @@ MonoBehaviour:
   cutItems:
   - {fileID: 2295488311534370037, guid: 715ddcb46b21b8b4fb72e01de03d993d, type: 3}
   - {fileID: 7442015899271338759, guid: 016f89da8a189c24d8b52956b4c5a7f5, type: 3}
+  clouds:
+  - {fileID: 1538484355775119944, guid: e8fe18387f93c524499fd46e16771772, type: 3}
+  - {fileID: 9111570110263182678, guid: 73ea7797b3f170545a65f90f90a0fa4a, type: 3}
+  - {fileID: 8708595757556617357, guid: 4870e90dc95a9f44f8bee393c8bb0bb0, type: 3}
   minItemsPerLevel: 3
   maxItemsPerLevel: 8
+  minCloudsPerLevel: 1
+  maxCloudsPerLevel: 3
 --- !u!61 &15623169761689941
 BoxCollider2D:
   m_ObjectHideFlags: 0
